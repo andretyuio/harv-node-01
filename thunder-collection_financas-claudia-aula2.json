@@ -1,0 +1,121 @@
+{
+  "info": {
+    "name": "Financas Claudia - Aula 2",
+    "description": "Aula 2 - API financas-claudia gravando no Supabase (localhost:4000)",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "1. GET /health",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:4000/health",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "4000",
+          "path": ["health"]
+        }
+      }
+    },
+    {
+      "name": "2. GET /status",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:4000/status",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "4000",
+          "path": ["status"]
+        }
+      }
+    },
+    {
+      "name": "3. POST /lancamentos (201 grava no Supabase)",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"usuario_id\": 1,\n  \"conta_id\": 1,\n  \"categoria_id\": 1,\n  \"tipo\": \"saida\",\n  \"valor\": 1250.80,\n  \"data_lancamento\": \"2025-05-05\",\n  \"descricao\": \"mercado do mes\"\n}",
+          "options": { "raw": { "language": "json" } }
+        },
+        "url": {
+          "raw": "http://localhost:4000/lancamentos",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "4000",
+          "path": ["lancamentos"]
+        }
+      }
+    },
+    {
+      "name": "4. POST /lancamentos (400 campos faltando)",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"valor\": 1250.80\n}",
+          "options": { "raw": { "language": "json" } }
+        },
+        "url": {
+          "raw": "http://localhost:4000/lancamentos",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "4000",
+          "path": ["lancamentos"]
+        }
+      }
+    },
+    {
+      "name": "5. POST /lancamentos (500 categoria inexistente)",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"usuario_id\": 1,\n  \"conta_id\": 1,\n  \"categoria_id\": 999,\n  \"tipo\": \"saida\",\n  \"valor\": 1250.80,\n  \"data_lancamento\": \"2025-05-05\",\n  \"descricao\": \"mercado do mes\"\n}",
+          "options": { "raw": { "language": "json" } }
+        },
+        "url": {
+          "raw": "http://localhost:4000/lancamentos",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "4000",
+          "path": ["lancamentos"]
+        }
+      }
+    },
+    {
+      "name": "6. POST /lancamentos (Churrascaria Rodizio - projetor)",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"usuario_id\": 1,\n  \"conta_id\": 1,\n  \"categoria_id\": 1,\n  \"tipo\": \"saida\",\n  \"valor\": \"325.00\",\n  \"data_lancamento\": \"2026-11-10\",\n  \"descricao\": \"Churrascaria Rodizio\"\n}",
+          "options": { "raw": { "language": "json" } }
+        },
+        "url": {
+          "raw": "http://localhost:4000/lancamentos",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "4000",
+          "path": ["lancamentos"]
+        }
+      }
+    }
+  ]
+}

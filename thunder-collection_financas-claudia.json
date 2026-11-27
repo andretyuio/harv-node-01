@@ -1,0 +1,100 @@
+{
+  "info": {
+    "name": "Financas Claudia",
+    "description": "Colecao da Aula 1 - API financas-claudia (localhost:3000)",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "1. GET /health",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/health",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["health"]
+        }
+      }
+    },
+    {
+      "name": "2. GET /status",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/status",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["status"]
+        }
+      }
+    },
+    {
+      "name": "3. POST /lancamentos (201)",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"valor\": \"89.05\",\n  \"descricao\": \"padaria\",\n  \"data\": \"2025-05-05\"\n}",
+          "options": { "raw": { "language": "json" } }
+        },
+        "url": {
+          "raw": "http://localhost:3000/lancamentos",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["lancamentos"]
+        }
+      }
+    },
+    {
+      "name": "4. POST /lancamentos (400 sem descricao e data)",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"valor\": \"89.05\"\n}",
+          "options": { "raw": { "language": "json" } }
+        },
+        "url": {
+          "raw": "http://localhost:3000/lancamentos",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["lancamentos"]
+        }
+      }
+    },
+    {
+      "name": "5. POST /lancamentos (400 valor zero)",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"valor\": \"0\",\n  \"descricao\": \"padaria\",\n  \"data\": \"2025-05-05\"\n}",
+          "options": { "raw": { "language": "json" } }
+        },
+        "url": {
+          "raw": "http://localhost:3000/lancamentos",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["lancamentos"]
+        }
+      }
+    }
+  ]
+}
